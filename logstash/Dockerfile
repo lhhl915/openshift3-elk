@@ -10,6 +10,8 @@ LABEL io.k8s.description="Logstash" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="logstash,${LOGSTASH_VERSION},elk"
 
+VOLUME ["/var/log/messages","/var/log/messages"]
+
 RUN \
   rpm --rebuilddb && yum clean all && \
   yum install -y tar java-1.8.0-openjdk openssl && \
